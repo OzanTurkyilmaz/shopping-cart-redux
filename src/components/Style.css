@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.book {
+    height: 600px;
+    width: 300px;
+    margin: 10px;
+}
+
+.book_image {
+    height: 400px;
+    width: 100%;
+}

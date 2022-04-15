@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import { connect } from 'react-redux';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Products from './components/Products'
+import Cart from './components/Cart'
 import './App.css';
 
-function App() {
+const App = (props) => {
+  
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+      <Route path='/' element={<Products />} />
+      <Route path='/cart' element={<Cart />} />
+      </Routes>
     </div>
+    </Router>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    bookList: state.bookList
+  }
+}
+
+export default connect(mapStateToProps)(App);
